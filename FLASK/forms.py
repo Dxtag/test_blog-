@@ -8,7 +8,7 @@ class Register(FlaskForm):
     email = StringField("Email", validators=[DataRequired(), Email()])
     password = PasswordField("Password", validators=[DataRequired()])
     confirm_password = PasswordField("Confirm Password", validators=[DataRequired(), EqualTo("password")])
-    token = StringField("Token", validators=[DataRequired())
+    token = StringField("Token", validators=[DataRequired()])
     submit = SubmitField("Sign Up")
 
 
