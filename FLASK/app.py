@@ -12,16 +12,15 @@ def index():
 
 @app.route("/login", methods = ["POST", "GET"])
 def login():
-    pass
+    return render_template('login.html')
 
 @app.route("/register", methods=["POST", "GET"])
 def register():
-    pass
+    return render_template('register.html')
 
 @app.route("/rules")
 def rules():
-    pass
-
+    return render_template('rules.html')
         
 if __name__ == '__main__':
     app.run(debug=True)
