@@ -1,6 +1,6 @@
 from flask import render_template, url_for, flash, redirect
 from test_blog.forms import Register, Login
-
+from test_blog import app
 @app.route("/")
 def index():
     return render_template('index.html')
