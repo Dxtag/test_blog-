@@ -20,7 +20,7 @@ class Login(FlaskForm):
 
 class Post(FlaskForm):
     topic =  StringField("Topic", validators=[DataRequired(),Length(min=2,max=1000)])
-    content = TextAreaField("Conten", render_kw={'rows':20})
+    content = TextAreaField("Content", render_kw={'rows':20})
     submit = SubmitField("Send")
                                              
 
