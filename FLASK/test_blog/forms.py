@@ -8,12 +8,12 @@ class Register(FlaskForm):
     email = StringField("E-mail", validators=[DataRequired(), Email()])
     password = PasswordField("Password", validators=[DataRequired()])
     confirm_password = PasswordField("Confirm Password", validators=[DataRequired(), EqualTo("password")])
-
+    submit = SubmitField("Login")
 
 class Login(FlaskForm):
     email = StringField("E-mail", validators=[DataRequired(), Email()])
     password = PasswordField("Password", validators=[DataRequired()])
     submit = SubmitField("Login")
-    remember_me = BooleanField("Remember me')
+    remember_me = BooleanField("Remember me")
                                              
 # Trzeba dorzucić Flask-Mail i itsdangerous żeby zrobić tokena ale to raczej w osobnym pliku 

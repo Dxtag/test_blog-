@@ -1,22 +1,34 @@
 {% extends  "base.html" %}
 {% block content %}
-<div class="container p-3">
-    <div class="col-md-6 text-center mx-auto">
+<div class="container">
+    <div class="col-md-10 col-lg-7 p-3 mx-auto bg-light mt-5">
         <form method="POST" , style="text-align: center;">
+            <fieldset>
+            <legend class="display-4">Welcome back!</legend>
 
-            <div class="form-group">
-                {{login.email.label()}}
+            <div class="form-group border-top pt-3">
+                {{login.email.label(class="h5")}}
                 {{login.email(class="form-control")}}
             </div>
 
             <div class="form-group">
-                {{login.password.label()}}
+                {{login.password.label(class="h5")}}
                 {{login.password(class="form-control")}}
             </div>
 
             <div class="form-group">
-                {{login.submit(class="btn btn-success")}}
+                {{login.submit(class="btn btn-success btn-lg")}}
             </div>
+
+            <div class="check-group border-bottom pb-1">
+                {{login.remember_me(class="check-input")}}
+                {{login.remember_me.label(class="check-label text-muted")}}
+            </div>
+            </fieldset>
+            <div class="pt-1">
+            <a class="text-success text-weight-light" href="{{url_for('register')}}">New here? </a>|<a class="text-success text-weight-light" href="#"> Forgot password?</a>
+            </div>
+        </form>
     </div>
-    </form>
-    {% endblock %}
+</div>
+{% endblock %}
