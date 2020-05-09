@@ -1,5 +1,5 @@
 from flask import render_template, url_for, flash, redirect
-from test_blog.forms import Register, Login
+from test_blog.forms import Register, Login, Post
 from test_blog import app
 @app.route("/")
 def index():
@@ -18,3 +18,8 @@ def register():
 @app.route("/rules")
 def rules():
     return render_template('rules.html', title = "rules")
+
+@app.route("/account/")
+def account():
+    add_post = Post()
+    return render_template('account.html', add_post = add_post)
