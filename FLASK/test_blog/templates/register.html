@@ -2,38 +2,39 @@
 
 {% block content %}
 
-    <div class = "form">
-        <form method="POST", style = "text-align: center;">
-            <div class = "form-group">
-            {{register.email.label()}}
-            {{register.email(class="form-control")}}
+<div class="container p-3">
+    <div class="col-md-6 text-center mx-auto">
+        <form method="POST" , style="text-align: center;">
+            <div class="form-group">
+                {{register.email.label()}}
+                {{register.email(class="form-control")}}
             </div>
 
-            <div class = "form-group">
-            {{register.username.label()}}
-            {{register.username(class="form-control")}}
+            <div class="form-group">
+                {{register.username.label()}}
+                {{register.username(class="form-control")}}
             </div>
 
-            <div class = "form-group">
-            {{register.password.label()}}
-            {{register.password(class="form-control")}}
+            <div class="form-group">
+                {{register.password.label()}}
+                {{register.password(class="form-control")}}
             </div>
 
-            <div class = "form-group">
-            {{register.confirm_password.label()}}
-            {{register.confirm_password(class="form-control")}}
+            <div class="form-group">
+                {{register.confirm_password.label()}}
+                {{register.confirm_password(class="form-control")}}
             </div>
 
-            <div class = "form-group">
-            {{register.token.label()}}
-            {{register.token(class="form-control")}}
+            <div class="form-group">
+                {{register.token.label()}}
+                {{register.token(class="form-control")}}
             </div>
 
-            <div class = "form-group">
+            <div class="form-group">
                 {{register.submit(class="btn btn-success")}}
             </div>
-
         </form>
     </div>
+</div>
 
 {% endblock %}
