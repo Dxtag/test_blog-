@@ -1,8 +1,37 @@
 {% extends  "base.html" %}
 {% block content %}
 <!-- Na razie wpisane tak z dupy potem trzeba podłączyć baze danych-->
-{% for title, author, content, data in posts %}
-<section>{{title}} {{author}} {{content}} {{data}}</section>
-{% endfor %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-5 p-3 bg-light mx-5 my-1">
+            <form>
+                <legend class="display-4 text-center border-bottom py-3">Add new post</legend>
 
+                <div class="form-group w-50 mx-auto py-3">
+                    {{add_post.topic(class="form-control", placeholder="Topic")}}
+                </div>
+
+                <div class="form-group">
+                    {{add_post.content(class="form-control")}}
+                </div>
+
+                <div class="form-group ">
+                    {{add_post.submit(class="btn btn-lg btn-info")}}
+                </div>
+
+            </form>
+        </div>
+
+        <aside>
+            <div class="col-md-5 p-3 bg-dark text-light mt-5 mx-auto">
+
+            </div>
+        </aside>
+    </div>
+
+
+    {% for title, author, content, data in posts %}
+    <section>{{title}} {{author}} {{content}} {{data}}</section>
+    {% endfor %}
+</div>
 {% endblock %}

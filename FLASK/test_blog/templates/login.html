@@ -1,17 +1,17 @@
 {% extends  "base.html" %}
 {% block content %}
 <div class="container">
-    <div class="col-md-10 col-lg-7 p-3 mx-auto bg-light mt-5 text-center">
+    <div class="col-auto p-3 mx-auto bg-light mt-5 text-center">
         <form method="POST">
             {{form.hidden_tag()}}
             <fieldset>
             <legend class="display-4">Welcome back!</legend>
-            <div class="form-group border-top pt-3">
+            <div class="form-group border-top pt-3 mx-5">
                 {{form.email.label(class="h5")}}
                 {{form.email(class="form-control")}}
             </div>
 
-            <div class="form-group">
+            <div class="form-group mx-5">
                 {{form.password.label(class="h5")}}
                 {{form.password(class="form-control")}}
             </div>

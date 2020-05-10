@@ -3,7 +3,8 @@ from test_blog.forms import Register, Login, Post
 from test_blog import app #, db, bcrypt
 @app.route("/")
 def index():
-    return render_template('index.html')
+    add_post = Post()
+    return render_template('index.html', add_post = add_post)
 
 @app.route("/login", methods = ["POST", "GET"])
 def login():
@@ -26,5 +27,5 @@ def rules():
 
 @app.route("/account/")
 def account():
-    add_post = Post()
-    return render_template('account.html', add_post = add_post)
+    
+    return render_template('account.html')
