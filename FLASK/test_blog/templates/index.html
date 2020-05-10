@@ -1,6 +1,6 @@
 {% extends  "base.html" %}
 {% block content %}
-<!-- Na razie wpisane tak z dupy potem trzeba podłączyć baze danych-->
+
 <div class="container">
     <div class="row">
         <div class="col-md-5 p-3 bg-light mx-5 my-1">
@@ -29,7 +29,7 @@
         </aside>
     </div>
 
-
+    <!-- Na razie wpisane tak z dupy potem trzeba podłączyć baze danych-->
     {% for title, author, content, data in posts %}
     <section>{{title}} {{author}} {{content}} {{data}}</section>
     {% endfor %}
