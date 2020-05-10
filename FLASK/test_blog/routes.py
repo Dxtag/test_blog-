@@ -1,19 +1,24 @@
-from flask import render_template, url_for, flash, redirect
+from flask import render_template, url_for, flash, redirect, request
 from test_blog.forms import Register, Login, Post
-from test_blog import app
+from test_blog import app #, db, bcrypt
 @app.route("/")
 def index():
     return render_template('index.html')
 
 @app.route("/login", methods = ["POST", "GET"])
 def login():
-    login = Login()
-    return render_template('login.html', title = "login",login = login)
+    form = Login(request.form)
+
+    if form.validate_on_submit():
+        flash("Jak to nie zadziała to dupa", "success") # kod wyświetlający tą wiadomośc jest w base.html nie index.html
+        return redirect(url_for("index"))
+
+    return render_template('login.html', title = "login",form = form)
 
 @app.route("/register", methods=["POST", "GET"])
 def register():
-    register = Register()
-    return render_template('register.html', title = "register",register = register)
+    form = Register(request.form)
+    return render_template('register.html', title = "register",form = form)
 
 @app.route("/rules")
 def rules():

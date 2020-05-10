@@ -1,4 +1,8 @@
 {% extends  "base.html" %}
 {% block content %}
-    <p>index {{usr}}</p>
+<!-- Na razie wpisane tak z dupy potem trzeba podłączyć baze danych-->
+{% for title, author, content, data in posts %}
+<section>{{title}} {{author}} {{content}} {{data}}</section>
+{% endfor %}
+
 {% endblock %}
