@@ -1,4 +1,4 @@
 {
     "python.pythonPath": "d:\\respository\\test_blog-\\venv\\Scripts\\python.exe",
-
+    "python.linting.pylintArgs": ["--load-plugins", "pylint_flask"]
 }

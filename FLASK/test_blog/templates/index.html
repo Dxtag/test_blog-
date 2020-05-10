@@ -1,9 +1,9 @@
 {% extends  "base.html" %}
 {% block content %}
 <!-- Na razie wpisane tak z dupy potem trzeba podłączyć baze danych-->
-<div class="container">
+<div class="container text-light">
     <div class="row">
-        <div class="col-md-5 p-3 bg-light mx-5 my-1">
+        <div class="col-md-6 bg-dark  mx-auto my-3">
             <form>
                 <legend class="display-4 text-center border-bottom py-3">Add new post</legend>
 
@@ -21,17 +21,76 @@
 
             </form>
         </div>
-
-        <aside>
-            <div class="col-md-5 p-3 bg-dark text-light mt-5 mx-auto">
-
+        <aside class="col-md-3 blog-sidebar border float-right p-3 my-3 mx-auto">
+            <div class="bg-secondary border-bottom">
+                <h3 class="border-bottom  pb-1 text-center">Some informations</h3>
+                <p>Etiam porta sem malesuada magna mollis euismod.
+                    Cras mattis consectetur purus sit amet fermentum.
+                    Aenean lacinia bibendum nulla sed consectetur.</p>
             </div>
+            <div class="p-1 border-bottom">
+                <ul class="text-center list-unstyled mt-3">
+                    <li><a href="#" class="text-warning">Lorem Ipsum</a></li>
+                    <li><a href="#" class="text-warning">Dolor Dolor</a></li>
+                    <li><a href="#" class="text-warning">Lorem Dolor</a></li>
+                    <li><a href="#" class="text-warning">Lorem Lorem Sit</a></li>
+                </ul>
+            </div>
+            <div class="p-1 text-center">
+                <a href="#" class="text-info">Facebook</a>
+            </div>
+
         </aside>
+
+        </form>
     </div>
 
+    <section class="mx-auto my-3 col-12">
 
-    {% for title, author, content, data in posts %}
-    <section>{{title}} {{author}} {{content}} {{data}}</section>
-    {% endfor %}
+        <article class="border bg-dark">
+
+            <header class="border-bottom text-center">
+                <h3>Topic</h3>
+            </header>
+            <p class="px-3 pt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                Aliquam suscipit, nibh vitae sodales pharetra, sem metus eleifend nisi, at ultrices nisi orci ac leo. 
+                Curabitur ipsum sem, cursus ut ante ut, tincidunt vulputate ligula. Mauris non elit eu nisl luctus aliquet. 
+                Duis magna sapien, congue vestibulum accumsan semper, posuere a turpis. Duis dictum sagittis molestie. 
+                Quisque commodo porttitor mi, id euismod eros tincidunt id. Donec eleifend justo turpis, id tincidunt sapien iaculis et. 
+                Fusce porttitor dictum purus, eu fermentum urna mattis at. Donec gravida lorem at massa tempor tempor. Maecenas vitae massa leo. 
+                Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Duis leo tortor, faucibus quis lectus eget, bibendum condimentum orci. 
+                Fusce felis quam, accumsan ut porta sed, dapibus sed dolor. Nulla et mauris ornare, vehicula odio quis, sodales elit.</p>
+
+            <footer class="p-1">
+                <div class="inline">Author: <a href="#" class="text-info">Lorem</a></div>
+                <div class="inline">Date: </div>
+            </footer>
+
+        </article>
+        <article class="border bg-dark mt-3 mx-0 col-12">
+
+            <header class="border-bottom text-center">
+                <h3>Topic</h3>
+            </header>
+            <p class="px-3 pt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                Aliquam suscipit, nibh vitae sodales pharetra, sem metus eleifend nisi, at ultrices nisi orci ac leo. 
+                Curabitur ipsum sem, cursus ut ante ut, tincidunt vulputate ligula. Mauris non elit eu nisl luctus aliquet. 
+                Duis magna sapien, congue vestibulum accumsan semper, posuere a turpis. Duis dictum sagittis molestie. 
+                Quisque commodo porttitor mi, id euismod eros tincidunt id. Donec eleifend justo turpis, id tincidunt sapien iaculis et. 
+                Fusce porttitor dictum purus, eu fermentum urna mattis at. Donec gravida lorem at massa tempor tempor. Maecenas vitae massa leo. 
+                Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Duis leo tortor, faucibus quis lectus eget, bibendum condimentum orci. 
+                Fusce felis quam, accumsan ut porta sed, dapibus sed dolor. Nulla et mauris ornare, vehicula odio quis, sodales elit.</p>
+
+            <footer class="p-1">
+                <div class="inline">Author: <a href="#" class="text-info">Lorem</a></div>
+                <div class="inline">Date: </div>
+            </footer>
+
+        </article>
+
+    </section>
+
 </div>
+
+
 {% endblock %}
