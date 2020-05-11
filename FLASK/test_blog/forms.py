@@ -35,6 +35,11 @@ class Login(FlaskForm):
     submit = SubmitField("Login")
     remember_me = BooleanField("Remember me")
 
+    def validate_email(self, email):
+        user = Profile.query.filter_by(email=email.data).first()
+        if not user:
+            raise ValidationError("The account with this e-mail does not exist")
+
 
 class Post_form(FlaskForm):
     topic =  StringField("Topic", validators=[DataRequired(),Length(min=2,max=100)])

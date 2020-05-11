@@ -1,10 +1,6 @@
-{% extends  "base.html" %}
+{% extends  "form_base.html" %}
 
-{% block content %}
-
-<div class="container">
-    <div class="<col-auto p-3 mx-auto bg-dark text-light mt-5 text-center">
-        <form method="POST">
+{% block form %}
             {{form.hidden_tag()}}
             <fieldset>
                 <legend class="display-4">Register</legend>
@@ -69,9 +65,4 @@
                 {% endif %}
                 
             </fieldset>
-        </form>
-
-    </div>
-</div>
-
 {% endblock %}
