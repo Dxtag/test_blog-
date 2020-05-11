@@ -8,7 +8,7 @@ database = os.path.join(folder, "site.db")
 
 app = Flask(__name__)
 app.secret_key = "]xf7x9fxabxcfx87{xadjxd3exea4RYA"
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///site.db"
+app.config["SQLALCHEMY_DATABASE_URI"] = f"sqlite:///{ database }"
 db = SQLAlchemy(app)
 bcrypt = Bcrypt(app)
 

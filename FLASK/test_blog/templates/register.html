@@ -10,30 +10,63 @@
                 <legend class="display-4">Register</legend>
                 <div class="form-group border-top pt-3 mx-5">
                     {{form.email.label(class="h5")}}
-                    {{form.email(class="form-control")}}
+                    {% if form.email.errors %}
+                    {{form.email(class="form-control form-control-lg is-invalid")}}
+                    {% for error in form.email.errors %}
+                    <span class="text-warning">{{error}}</span>
+                    {% endfor %}
+                    {% else %}
+                    {{form.email(class="form-control form-control-lg")}}
+                    {% endif %}
                 </div>
 
                 <div class="form-group mx-5">
                     {{form.username.label(class="h5")}}
-                    {{form.username(class="form-control", )}}
+                    {% if form.username.errors %}
+                    {{form.username(class="form-control form-control-lg is-invalid")}}
+                    {% for error in form.username.errors %}
+                    <span class="text-warning">{{error}}</span>
+                    {% endfor %}
+                    {% else %}
+                    {{form.username(class="form-control form-control-lg")}}
+                    {% endif %}
                 </div>
 
                 <div class="form-group mx-5">
                     {{form.password.label(class="h5")}}
-                    {{form.password(class="form-control")}}
+                    {% if form.password.errors %}
+                    {{form.password(class="form-control form-control-lg is-invalid")}}
+                    {% for error in form.password.errors %}
+                    <span class="text-warning">{{error}}</span>
+                    {% endfor %}
+                    {% else %}
+                    {{form.password(class="form-control form-control-lg")}}
+                    {% endif %}
                 </div>
 
                 <div class="form-group mx-5">
                     {{form.confirm_password.label(class="h5")}}
-                    {{form.confirm_password(class="form-control")}}
+                    {% if form.confirm_password.errors %}
+                    {{form.confirm_password(class="form-control form-control-lg is-invalid")}}
+                    {% for error in form.confirm_password.errors %}
+                    <span class="text-warning">{{error}}</span>
+                    {% endfor %}
+                    {% else %}
+                    {{form.confirm_password(class="form-control form-control-lg")}}
+                    {% endif %}
                 </div>
                 <div class="form-group mx-5">
                     {{form.submit(class="btn btn-success btn-lg")}}
                 </div>
-                <div class="form-group mx-5">
+                <div class="form-group mx-5 pb-0 mb-0">
                     {{form.rules(class="check-input")}}
                     <a class="text-info text-weight-light check-label" href="{{url_for('rules')}}">I know Rules</a>
                 </div>
+                {% if form.rules.errors %}
+                {% for error in form.rules.errors %}
+                <span class="text-warning">{{error}}</span>
+                {% endfor %}
+                {% endif %}
                 
             </fieldset>
         </form>
