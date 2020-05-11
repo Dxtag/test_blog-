@@ -1,43 +1,49 @@
-{% extends  "form_base.html" %}
-{% block form %}
-<fieldset>
-    <legend class="display-4">Welcome back!</legend>
-    <div class="form-group border-top pt-3 mx-5">
-        {{form.email.label(class="h5")}}
-        {% if form.email.errors %}
-        {{form.email(class="form-control form-control-lg is-invalid")}}
-        {% for error in form.email.errors %}
-        <span class="text-warning">{{error}}</span>
-        {% endfor %}
-        {% else %}
-        {{form.email(class="form-control form-control-lg")}}
-        {% endif %}
-    </div>
+{% extends  "base.html" %}
+{% block content%}
+<div class="container">
+    <div class="<col-auto p-3 mx-auto bg-dark text-light mt-5 text-center">
+        <form method="POST">
+            {{form.hidden_tag()}}
+            <fieldset>
+                <legend class="display-4">Welcome back!</legend>
+                <div class="form-group border-top pt-3 mx-5">
+                    {{form.email.label(class="h5")}}
+                    {% if form.email.errors %}
+                    {{form.email(class="form-control form-control-lg is-invalid")}}
+                    {% for error in form.email.errors %}
+                    <span class="text-warning">{{error}}</span>
+                    {% endfor %}
+                    {% else %}
+                    {{form.email(class="form-control form-control-lg")}}
+                    {% endif %}
+                </div>
 
-    <div class="form-group mx-5">
-        {{form.password.label(class="h5")}}
-        {% if form.password.errors %}
-        {{form.password(class="form-control form-control-lg is-invalid")}}
-        {% for error in form.password.errors %}
-        <span class="text-warning">{{error}}</span>
-        {% endfor %}
-        {% else %}
-        {{form.password(class="form-control form-control-lg")}}
-        {% endif %}
-    </div>
+                <div class="form-group mx-5">
+                    {{form.password.label(class="h5")}}
+                    {% if form.password.errors %}
+                    {{form.password(class="form-control form-control-lg is-invalid")}}
+                    {% for error in form.password.errors %}
+                    <span class="text-warning">{{error}}</span>
+                    {% endfor %}
+                    {% else %}
+                    {{form.password(class="form-control form-control-lg")}}
+                    {% endif %}
+                </div>
 
-    <div class="check-group">
-        {{form.remember_me(class="check-input")}}
-        {{form.remember_me.label(class="check-label")}}
-    </div>
+                <div class="check-group">
+                    {{form.remember_me(class="check-input")}}
+                    {{form.remember_me.label(class="check-label")}}
+                </div>
 
-    <div class="form-group border-bottom pb-2">
-        {{form.submit(class="btn btn-success btn-lg")}}
+                <div class="form-group border-bottom pb-2">
+                    {{form.submit(class="btn btn-success btn-lg")}}
+                </div>
+            </fieldset>
+            <div class="">
+                <a class="text-success text-weight-light" href="{{url_for('register')}}">New here? </a>|<a
+                    class="text-success text-weight-light" href="#"> Forgot password?</a>
+            </div>
+        </form>
     </div>
-</fieldset>
-<div class="">
-    <a class="text-success text-weight-light" href="{{url_for('register')}}">New here? </a>|<a
-        class="text-success text-weight-light" href="#"> Forgot password?</a>
 </div>
-
 {% endblock %}

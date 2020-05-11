@@ -1,100 +1,60 @@
 {% extends  "base.html" %}
 {% block content %}
-<!-- Na razie wpisane tak z dupy potem trzeba podłączyć baze danych-->
+
 <div class="container text-light">
-    <div class="row">
-        <div class="col-md-6 bg-dark  mx-auto my-3">
-            <form>
-                <legend class="display-4 text-center border-bottom py-3">Add new post</legend>
-
-                <div class="form-group w-50 mx-auto py-3">
-                    {{add_post.topic(class="form-control", placeholder="Topic")}}
+    <div class="border p-3 my-3 mx-auto">
+        <div class="bg-secondary border-bottom">
+            <h3 class="border-bottom  pb-1 text-center">Some informations</h3>
+            <p>Etiam porta sem malesuada magna mollis euismod.
+                Cras mattis consectetur purus sit amet fermentum.
+                Aenean lacinia bibendum nulla sed consectetur.</p>
+        </div>
+        <div class="p-1 border-bottom">
+            <ul class="text-center list-unstyled mt-3">
+                <li><a href="#" class="text-warning">Lorem Ipsum</a></li>
+                <li><a href="#" class="text-warning">Dolor Dolor</a></li>
+                <li><a href="#" class="text-warning">Lorem Dolor</a></li>
+                <li><a href="#" class="text-warning">Lorem Lorem Sit</a></li>
+            </ul>
+        </div>
+        <div class="p-1">
+            <form class=" pt-1 mx-auto">
+                <div class="form-group mb-1">
+                    <input class="form-control " type="search" placeholder="Search" aria-label="Search">
                 </div>
-
-                <div class="form-group">
-                    {{add_post.content(class="form-control")}}
+                <div class="form-group my-1 pt-1 ">
+                    <button class="btn btn-success" type="submit">Search</button>
                 </div>
-
-                <div class="form-group ">
-                    {{add_post.submit(class="btn btn-lg btn-info")}}
-                </div>
-
             </form>
         </div>
-        <aside class="col-md-3 blog-sidebar border float-right p-3 my-3 mx-auto">
-            <div class="bg-secondary border-bottom">
-                <h3 class="border-bottom  pb-1 text-center">Some informations</h3>
-                <p>Etiam porta sem malesuada magna mollis euismod.
-                    Cras mattis consectetur purus sit amet fermentum.
-                    Aenean lacinia bibendum nulla sed consectetur.</p>
-            </div>
-            <!--<div class="p-1 border-bottom">
-                <ul class="text-center list-unstyled mt-3">
-                    <li><a href="#" class="text-warning">Lorem Ipsum</a></li>
-                    <li><a href="#" class="text-warning">Dolor Dolor</a></li>
-                    <li><a href="#" class="text-warning">Lorem Dolor</a></li>
-                    <li><a href="#" class="text-warning">Lorem Lorem Sit</a></li>
-                </ul>
-            </div>-->
-            <div class="p-1">
-                <form class=" pt-1">
-                    <div class="form-group mx-auto mb-1">
-                    <input class="form-control " type="search" placeholder="Search" aria-label="Search">
-                    </div>
-                    <div class="form-group float-right my-1">
-                    <button class="btn btn-success" type="submit">Search</button>
-                    </div>
-                  </form>
-            </div>
-
-        </aside>
-
-        </form>
     </div>
+    </form>
 
-    <section class="mx-auto my-3 col-12">
-
-        <article class="border bg-dark">
-
-            <header class="border-bottom text-center">
-                <h3>Topic</h3>
+    <section class="mx-auto my-3 col-12 border bg-dark">
+        {% for _ in range(24)%}
+        <article class="mt-3 mx-auto border-bottom">
+            <header class="text-center h5">
+                Topic
             </header>
-            <p class="px-3 pt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                Aliquam suscipit, nibh vitae sodales pharetra, sem metus eleifend nisi, at ultrices nisi orci ac leo. 
-                Curabitur ipsum sem, cursus ut ante ut, tincidunt vulputate ligula. Mauris non elit eu nisl luctus aliquet. 
-                Duis magna sapien, congue vestibulum accumsan semper, posuere a turpis. Duis dictum sagittis molestie. 
-                Quisque commodo porttitor mi, id euismod eros tincidunt id. Donec eleifend justo turpis, id tincidunt sapien iaculis et. 
-                Fusce porttitor dictum purus, eu fermentum urna mattis at. Donec gravida lorem at massa tempor tempor. Maecenas vitae massa leo. 
-                Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Duis leo tortor, faucibus quis lectus eget, bibendum condimentum orci. 
-                Fusce felis quam, accumsan ut porta sed, dapibus sed dolor. Nulla et mauris ornare, vehicula odio quis, sodales elit.</p>
-
+            <p class="px-3 pt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Aliquam suscipit, nibh vitae sodales pharetra, sem metus eleifend nisi, at ultrices nisi orci ac leo.
+                Curabitur ipsum sem, cursus ut ante ut, tincidunt vulputate ligula. Mauris non elit eu nisl luctus
+                aliquet.
+                Duis magna sapien, congue vestibulum accumsan semper, posuere a turpis. Duis dictum sagittis molestie.
+                Quisque commodo porttitor mi, id euismod eros tincidunt id. Donec eleifend justo turpis, id tincidunt
+                sapien iaculis et.
+                Fusce porttitor dictum purus, eu fermentum urna mattis at. Donec gravida lorem at massa tempor tempor.
+                Maecenas vitae massa leo.
+                Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Duis leo tortor,
+                faucibus quis lectus eget, bibendum condimentum orci.
+                Fusce felis quam, accumsan ut porta sed, dapibus sed dolor. Nulla et mauris ornare, vehicula odio quis,
+                sodales elit.</p>
             <footer class="p-1">
                 <div class="inline">Author: <a href="#" class="text-info">Lorem</a></div>
                 <div class="inline">Date: </div>
             </footer>
-
         </article>
-        <article class="border bg-dark mt-3 mx-auto">
-
-            <header class="border-bottom text-center">
-                <h3>Topic</h3>
-            </header>
-            <p class="px-3 pt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                Aliquam suscipit, nibh vitae sodales pharetra, sem metus eleifend nisi, at ultrices nisi orci ac leo. 
-                Curabitur ipsum sem, cursus ut ante ut, tincidunt vulputate ligula. Mauris non elit eu nisl luctus aliquet. 
-                Duis magna sapien, congue vestibulum accumsan semper, posuere a turpis. Duis dictum sagittis molestie. 
-                Quisque commodo porttitor mi, id euismod eros tincidunt id. Donec eleifend justo turpis, id tincidunt sapien iaculis et. 
-                Fusce porttitor dictum purus, eu fermentum urna mattis at. Donec gravida lorem at massa tempor tempor. Maecenas vitae massa leo. 
-                Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Duis leo tortor, faucibus quis lectus eget, bibendum condimentum orci. 
-                Fusce felis quam, accumsan ut porta sed, dapibus sed dolor. Nulla et mauris ornare, vehicula odio quis, sodales elit.</p>
-
-            <footer class="p-1">
-                <div class="inline">Author: <a href="#" class="text-info">Lorem</a></div>
-                <div class="inline">Date: </div>
-            </footer>
-
-        </article>
-
+        {% endfor %}
     </section>
 
 </div>
