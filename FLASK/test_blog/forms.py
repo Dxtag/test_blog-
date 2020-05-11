@@ -19,9 +19,9 @@ class Login(FlaskForm):
     remember_me = BooleanField("Remember me")
 
 
-class Post(FlaskForm):
-    topic =  StringField("Topic", validators=[DataRequired(),Length(min=2,max=1000)])
-    content = TextAreaField("Content", render_kw={"rows":5}, )
+class Post_form(FlaskForm):
+    topic =  StringField("Topic", validators=[DataRequired(),Length(min=2,max=100)])
+    content = TextAreaField("Content", render_kw={"rows":5},validators=[Length(min=2)] )
     submit = SubmitField("Send")
                                              
 
