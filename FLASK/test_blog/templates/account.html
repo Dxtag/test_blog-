@@ -1,52 +1,42 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="container text-light">
-<section>
-<div class="display-1 text-center"> {{current_user.username}} </div>
+    <section>
+        <div class="display-1 text-center"> {{current_user.username}} </div>
 
-    <div class="mx-auto my-3 col-sm-10 col-lg-8 mx-auto bg-dark py-3 rounded-lg">
-        <form>
-            <legend class="display-4 text-center border-bottom py-3">Add new post</legend>
+        <div class="mx-auto my-3 col-sm-10 col-lg-8 mx-auto bg-dark py-3 rounded-lg">
+            <form method="POST">
+                {{form.hidden_tag()}}
+                <legend class="display-4 text-center border-bottom py-3">Add new post</legend>
 
-            <div class="form-group w-50 mx-auto py-3">
-                {{add_post.topic(class="form-control", placeholder="Topic")}}
-            </div>
+                <div class="form-group w-50 mx-auto py-3">
+                    {{form.topic(class="form-control", placeholder="Topic")}}
+                </div>
 
-            <div class="form-group">
-                {{add_post.content(class="form-control")}}
-            </div>
+                <div class="form-group">
+                    {{form.content(class="form-control")}}
+                </div>
 
-            <div class="form-group ">
-                {{add_post.submit(class="btn btn-lg btn-info")}}
-            </div>
+                <div class="form-group ">
+                    {{form.submit(class="btn btn-lg btn-info")}}
+                </div>
 
-        </form>
-</section>
-<section class="mx-auto my-3 col-12 border bg-dark">
-    {% for _ in range(24)%}
-    <article class="mt-3 mx-auto border-bottom">
-        <header class="text-center h5">
-            Topic
-        </header>
-        <p class="px-3 pt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Aliquam suscipit, nibh vitae sodales pharetra, sem metus eleifend nisi, at ultrices nisi orci ac leo.
-            Curabitur ipsum sem, cursus ut ante ut, tincidunt vulputate ligula. Mauris non elit eu nisl luctus
-            aliquet.
-            Duis magna sapien, congue vestibulum accumsan semper, posuere a turpis. Duis dictum sagittis molestie.
-            Quisque commodo porttitor mi, id euismod eros tincidunt id. Donec eleifend justo turpis, id tincidunt
-            sapien iaculis et.
-            Fusce porttitor dictum purus, eu fermentum urna mattis at. Donec gravida lorem at massa tempor tempor.
-            Maecenas vitae massa leo.
-            Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Duis leo tortor,
-            faucibus quis lectus eget, bibendum condimentum orci.
-            Fusce felis quam, accumsan ut porta sed, dapibus sed dolor. Nulla et mauris ornare, vehicula odio quis,
-            sodales elit.</p>
-        <footer class="p-1">
-            <div class="inline">Author: <a href="#" class="text-info">Lorem</a></div>
-            <div class="inline">Date: </div>
-        </footer>
-    </article>
-    {% endfor %}
-</section>
+            </form>
+    </section>
+
+    <section class="mx-auto my-3 col-12 border bg-dark">
+        {% for post in posts%}
+        <article class="mt-3 mx-auto border-bottom">
+            <header class="text-center h5">
+                {{ post.topic }}
+            </header>
+            <p class="px-3 pt-3">{{ post.content }}</p>
+            <footer class="p-1">
+                <div class = "inline"><a href="{{url_for('delete_post', post_id=post.id )}}" class = "danger"> DELTE</a></div>
+                <div class="inline">Date: {{post.date_posted}} </div>
+            </footer>
+        </article>
+        {% endfor %}
+    </section>
 </div>
 {% endblock %}
