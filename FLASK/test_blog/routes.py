@@ -1,5 +1,5 @@
 from flask import render_template, url_for, flash, redirect, request, session
-from test_blog.forms import Register, Login, Post_form
+from test_blog.forms import Register, Login, Post_form, Change_form
 from test_blog import app , db, bcrypt, login_manager
 from test_blog.data_forms import Profile, Post
 from flask_login import login_user, current_user, logout_user, login_required
@@ -9,7 +9,7 @@ from flask_login import login_user, current_user, logout_user, login_required
 @app.route("/")
 def index():
     posts =  Post.query.all()
-    return render_template("index.html", posts=posts)
+    return render_template("index.html", posts=posts;)
 
 @app.route("/login", methods = ["POST", "GET"])
 def login():
@@ -48,6 +48,7 @@ def rules():
 @app.route("/account", methods=["POST", "GET"])
 @login_required
 def account():
+    change_form = Change_form()
     form = Post_form()
     if form.validate_on_submit():
         post = Post(topic=form.topic.data, content=form.content.data, profile_id=current_user.id)
@@ -55,7 +56,8 @@ def account():
         db.session.commit()
         flash("Post added!", "info")
     posts = Post.query.filter_by(profile_id=current_user.id).all()
-    return render_template("account.html", title=current_user.username, form=form, posts=posts)
+    return render_template("account.html", title=current_user.username, form=form, 
+                            posts=posts, change_form=change_form)
 
 @app.route("/logout")
 @login_required
